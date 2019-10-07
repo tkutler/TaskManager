@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+    <link href="https://fonts.googleapis.com/css?family=Comfortaa&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+    integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+    crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/874f2f835f.js"></script>
+  <meta charset="utf-8">
+  
+  <title></title>
+  <style>
+.register {
+          
+          border: solid black;
+          width: 400px;
+          height: 530px;
+          background-size: 390px 420px;        
+          background-image: 
+          linear-gradient(rgba(0, 0, 0, 0.5),
+           rgba(0, 0, 0, 0.5)), 
+          url("static/lightblue.jpg");
+          margin: 0 auto;
+          margin-top: 28px;
+          margin-bottom: 10px;
+
+
+      } 
+      .headers {
+          text-align: center;
+          text-decoration-line: underline;
+          color: white;
+          font-family: 'Ubuntu Condensed', sans-serif;
+      }
+
+      .login {
+          
+          vertical-align: top;
+          border: solid black;
+          width: 400px;
+          height: 300px;
+         
+          background-image: linear-gradient(rgba(0, 0, 0, 0.5),
+                  rgba(0, 0, 0, 0.5)), url("static/lightblue.jpg");
+          background-size: 390px 420px;
+          margin: 0 auto;
+
+
+
+      }
+      .not {
+          font-size: 13px;
+          background-color: white;
+          color: red;
+          display: inline-block;
+          text-align: top; 
+          margin-left: 31px;
+          
+          
+      }
+      .trigger {
+          font-size: 13px;
+          background-color: red;
+          color: white;
+          display: inline-block;
+          text-align: top; 
+          margin-left: 31px;
+          
+          
+      }
+
+      .fields {
+          margin-left: 10px;
+          font-weight: bold;
+          margin: 10px;
+      }
+
+      input {
+          margin-left: 5px;
+      }
+
+      body {
+          background-image: linear-gradient(rgba(0, 0, 0, 0.5),
+                  rgba(0, 0, 0, 0.5)), url("static/background.jpg");
+
+
+
+      }
+      .titlelog {
+        font-family: 'Comfortaa', cursive;
+
+
+      }
+
+      h2 {
+          text-align: center;
+          background-color: white;
+          width: 350px;
+          margin-left: 20px;
+          font-family: Verdana;
+          margin-top: 7px;
+
+      }
+
+      .button {
+          background-color: #3C4C5B;
+          align-content: center;
+          margin-left: 282px;
+          width: 100px;
+          color: white;
+
+      } 
+      .errors {
+        background-color: red;
+        color: white;
+        text-align: center;
+      }
+    
+  </style>
+
+</head>
+
+<body>
+  <div class ="wrapper">
+      
+          {% with messages = get_flashed_messages() %}     
+          <!-- declare a variable called messages -->
+              {% if messages %}  
+          <div class = "errors">                          
+          <!-- check if there are any messages -->
+              {% for message in messages %}            
+          <!-- loop through the messages -->
+              <p>{{message}}</p>                   
+          <!-- display each m essage in a paragraph tag -->
+                  {% endfor %}
+          {% endif %}
+          {% endwith %}
+        </div>
+    <div class="register">
+    <h1 class = "titlelog">Register</h1>
+    <form class="registration" action="/register" method="post">
+      <p>First Name: <input type="text" name="first"></p>
+      <p>Last Name: <input type="text" name="last"></p>
+      <p>Email: <input type="text" name="email"></p>
+      <p>Password: <input type="password" name="password"></p>
+      <p>Confirm Password: <input type="password" name="passwordconfirm"></p>
+      <input type="submit">
+      </form>
+      </div>
+    <div class="login">
+      <h1 class= "titlelog">Login</h1>
+      <form action="/login" method="post">
+      <p>Email: <input type="text" name="userlogin"></p>
+      <p>Password: <input type="password" name="passwordlogin"></p>
+      <input type="submit">
+      </form>
+      
+    </div>
+
+
+</body>
+
+</html>
